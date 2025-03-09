@@ -167,3 +167,227 @@ body {
     animation: fadeInOut 3s ease-in-out;
 }
 
+/* Mobile Devices (Small Screens) */
+@media only screen and (max-width: 480px) {
+    /* Navbar adjustments */
+    .nav-content {
+        padding: 0 10px;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+    
+    #navbar {
+        height: auto;
+        padding: 10px 0;
+    }
+    
+    .org-name {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .nav-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    /* Main content adjustments */
+    .star-jedi {
+        font-size: 2em;
+    }
+    
+    .star-jedi-hollow {
+        font-size: 1.5em;
+    }
+    
+    /* Footer message */
+    #farewell-message {
+        font-size: 1em;
+        bottom: 15px;
+    }
+    
+    #person-name {
+        font-size: 1em;
+    }
+}
+
+/* Tablets and Small Laptops */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .nav-content {
+        padding: 0 15px;
+    }
+    
+    .org-name {
+        font-size: 20px;
+    }
+    
+    .logo img {
+        height: 50px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .nav-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .star-jedi {
+        font-size: 3em;
+    }
+    
+    .star-jedi-hollow {
+        font-size: 2em;
+    }
+    
+    #farewell-message {
+        font-size: 1.2em;
+    }
+}
+
+/* Medium Devices (Laptops, Small Desktops) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .nav-content {
+        max-width: 900px;
+    }
+    
+    .org-name {
+        font-size: 22px;
+    }
+    
+    .star-jedi {
+        font-size: 3.5em;
+    }
+    
+    .star-jedi-hollow {
+        font-size: 2.2em;
+    }
+}
+
+/* Large Devices (Desktops) */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    .nav-content {
+        max-width: 1100px;
+    }
+}
+
+/* Extra Large Devices (Large Desktops) */
+@media only screen and (min-width: 1441px) {
+    .nav-content {
+        max-width: 1300px;
+    }
+    
+    .org-name {
+        font-size: 26px;
+    }
+    
+    .logo img {
+        height: 70px;
+    }
+    
+    .nav-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    
+    .star-jedi {
+        font-size: 5em;
+    }
+    
+    .star-jedi-hollow {
+        font-size: 3em;
+    }
+    
+    #farewell-message {
+        font-size: 1.8em;
+        bottom: 40px;
+    }
+    
+    #person-name {
+        font-size: 1.4em;
+    }
+}
+
+/* For devices with a notch or unusual aspect ratios */
+@supports (padding: max(0px)) {
+    #navbar {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+    }
+    
+    #farewell-message {
+        padding-bottom: max(30px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media only screen and (max-height: 480px) and (orientation: landscape) {
+    #navbar {
+        height: 60px;
+    }
+    
+    .nav-content {
+        padding: 0 10px;
+    }
+    
+    .org-name {
+        font-size: 18px;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
+    .star-jedi {
+        font-size: 2.5em;
+    }
+    
+    .star-jedi-hollow {
+        font-size: 1.5em;
+    }
+    
+    #farewell-message {
+        bottom: 10px;
+        font-size: 1em;
+    }
+    
+    #person-name {
+        margin-top: 5px;
+    }
+}
+
+/* Print styles */
+@media print {
+    #stars-container {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .star-jedi, #person-name {
+        color: black;
+        text-shadow: none;
+    }
+    
+    .star-jedi-hollow {
+        -webkit-text-stroke: 1px black;
+        text-shadow: none;
+    }
+}
