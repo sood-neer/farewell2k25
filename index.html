@@ -3,39 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixonoids - Farewell 2K25</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>PIXONOIDS - Farewell</title>
+    <LINK HREF="/style.css" REL="stylesheet">
 </head>
 <body>
-    <!-- Stars container -->
+    <!-- Star background -->
     <div id="stars-container"></div>
     
-    <!-- Navigation Bar -->
-    <nav id="navbar">
-        <div class="nav-content">
-            <div class="logo">
-                <img src="/logo.png" alt="Pixonoids Logo">
-            </div>
-            <div class="org-name">PixoNoiDS</div>
-            <div class="nav-links">
-                <a href="#" class="nav-button">viDEo</a>
-                <a href="#" class="nav-button">iMAGES</a>
-                <a href="#" class="nav-button">HERo SECTioN</a>
-            </div>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="logo.png" alt="PIXONOIDS Logo">
+            <span class="org-name">PixoNoiDS</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="active">HoME</a>
+            <a href="#gallery">GALLERY</a>
+            <a href="#video">viDEo</a>
+            <a href="#heroes">HERoES SECTioN</a>
         </div>
     </nav>
-    
-   
-    <div id="organization">
-        <h1 id="pixonoids" class="star-jedi">PixoNoiDS</h1>
-        <h2 id="farewell" class="star-jedi-hollow">FAREWELL2K25</h2>
+
+    <div class="nav-dots">
+        <div class="nav-dot active" data-section="home"></div>
+        <div class="nav-dot" data-section="gallery"></div>
+        <div class="nav-dot" data-section="video"></div>
+        <div class="nav-dot" data-section="heroes"></div>
     </div>
-    
-    <!-- Farewell Message -->
-    <div id="farewell-message">
-        <div>You will be missed</div>
-        <div id="person-name" class="fade-in-out star-jedi"></div>
+
+    <div class="main-container">
+        
+        <section id="home">
+            <h1 class="main-title">PixoNoiDS</h1>
+            <h2 class="subtitle">Farewell2K25</h2>
+            <footer class="footer">
+                <div class="farewell-container">
+                    <h3 class="farewell-message">You will always be missed</h3>
+                    <div id="rotatingName" class="rotating-name"></div>
+                </div>
+            </footer>
+        </section>
+
+       
+        <section id="gallery">
+            <div class="gallery-container">
+                <div class="photo-frame" id="frame1">
+                    <img src="/api/placeholder/400/300" alt="Memory 1">
+                </div>
+                <div class="photo-frame" id="frame2">
+                    <img src="/api/placeholder/400/300" alt="Memory 2">
+                </div>
+                <div class="photo-frame" id="frame3">
+                    <img src="/api/placeholder/400/300" alt="Memory 3">
+                </div>
+                <div class="photo-frame" id="frame4">
+                    <img src="/api/placeholder/400/300" alt="Memory 4">
+                </div>
+                <div class="photo-frame" id="frame5">
+                    <img src="/api/placeholder/400/300" alt="Memory 5">
+                </div>
+                <div class="photo-frame" id="frame6">
+                    <img src="/api/placeholder/400/300" alt="Memory 6">
+                </div>
+                <div class="photo-frame" id="frame7">
+                    <img src="/api/placeholder/400/300" alt="Memory 7">
+                </div>
+                <div class="photo-frame" id="frame8">
+                    <img src="/api/placeholder/400/300" alt="Memory 8">
+                </div>
+                <div class="photo-frame" id="frame9">
+                    <img src="/api/placeholder/400/300" alt="Memory 9">
+                </div>
+                <div class="photo-frame" id="frame10">
+                    <img src="/api/placeholder/400/300" alt="Memory 10">
+                </div>
+                <div class="photo-frame" id="frame11">
+                    <img src="/api/placeholder/400/300" alt="Memory 11">
+                </div>
+                <div class="photo-frame" id="frame12">
+                    <img src="/api/placeholder/400/300" alt="Memory 12">
+                </div>
+            </div>
+        </section>
+
+        <section id="video">
+            <div class="video-container">
+                <div class="video-frame">
+                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                            title="PIXONOIDS Farewell Video" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="heroes">
+            
+        </section>
     </div>
-</body>
+
     <script src="/script.js"></script>
+</body>
 </html>
