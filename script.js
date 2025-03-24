@@ -60,7 +60,6 @@ function animateStar(star) {
 function setupScrolling() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
-    const navDots = document.querySelectorAll('.nav-dot');
     const mainContainer = document.querySelector('.main-container');
 
     // Update active section
@@ -75,10 +74,8 @@ function setupScrolling() {
             if (scrollPosition >= sectionTop - windowHeight/2 && 
                 scrollPosition < sectionBottom - windowHeight/2) {
                 navLinks.forEach(link => link.classList.remove('active'));
-                navDots.forEach(dot => dot.classList.remove('active'));
                 
                 navLinks[index].classList.add('active');
-                navDots[index].classList.add('active');
             }
         });
     }
@@ -99,13 +96,6 @@ function setupScrolling() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const sectionId = link.getAttribute('href');
-            scrollToSection(sectionId);
-        });
-    });
-
-    navDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const sectionId = '#' + dot.dataset.section;
             scrollToSection(sectionId);
         });
     });
@@ -134,7 +124,6 @@ function applyRandomRotations() {
     });
 }
 
-// Add name rotation functionality
 function startNameRotation() {
     const namesData = {
         "people": [
@@ -153,23 +142,39 @@ function startNameRotation() {
             { "name": "Ridhi Sharma Ma'am" }
         ]
     };
-    
+
     const rotatingNameElement = document.getElementById('rotatingName');
+    rotatingNameElement.classList.add('active'); // Ensure the active class is added
     let currentIndex = 0;
-    
-    function showNextName() {
-        rotatingNameElement.classList.remove('active');
-        
-        setTimeout(() => {
-            rotatingNameElement.textContent = namesData.people[currentIndex].name;
-            rotatingNameElement.classList.add('active');
-            currentIndex = (currentIndex + 1) % namesData.people.length;
-        }, 800);
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const delayBetweenNames = 2000;
+
+    function typeWriterEffect() {
+        const currentName = namesData.people[currentIndex].name;
+        if (isDeleting) {
+            rotatingNameElement.textContent = currentName.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                currentIndex = (currentIndex + 1) % namesData.people.length;
+                setTimeout(typeWriterEffect, typingSpeed);
+            } else {
+                setTimeout(typeWriterEffect, deletingSpeed);
+            }
+        } else {
+            rotatingNameElement.textContent = currentName.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentName.length) {
+                isDeleting = true;
+                setTimeout(typeWriterEffect, delayBetweenNames);
+            } else {
+                setTimeout(typeWriterEffect, typingSpeed);
+            }
+        }
     }
-    
-    rotatingNameElement.textContent = namesData.people[0].name;
-    rotatingNameElement.classList.add('active');
-    currentIndex = 1;
-    
-    setInterval(showNextName, 2500);
+
+    typeWriterEffect();
 }
