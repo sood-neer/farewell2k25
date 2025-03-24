@@ -8,6 +8,16 @@
     src: url('/font/Starjhol.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'nura';
+    src: url('/SLANT.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'nura bold';
+    src: url('/SLANT.TTF') format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -74,6 +84,7 @@ body {
 
 .org-name {
     color: #ffe81f;
+    font-family: "nura bold";
     font-size: 1.8rem;
     letter-spacing: 2px;
     text-shadow: 0 0 10px rgba(255, 232, 31, 0.7);
@@ -86,6 +97,7 @@ body {
 
 .nav-links a {
     color: #ffe81f;
+    font-family: "nura";
     text-decoration: none;
     font-size: 1rem;
     letter-spacing: 1px;
@@ -105,11 +117,10 @@ body {
     transform: translateY(-2px);
 }
 
-/* Main container for scroll snap */
+/* Main container */
 .main-container {
     height: 100vh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
     position: relative;
 }
 
@@ -125,25 +136,9 @@ body {
     gap: 15px;
 }
 
-.nav-dot {
-    width: 12px;
-    height: 12px;
-    background: rgba(255, 232, 31, 0.3);
-    border: 2px solid #ffe81f;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.nav-dot.active {
-    background: #ffe81f;
-    box-shadow: 0 0 15px rgba(255, 232, 31, 0.7);
-}
-
 /* Section styles */
 section {
     height: 100vh;
-    scroll-snap-align: start;
     position: relative;
     overflow: hidden;
     padding: 80px 20px 20px;
@@ -263,21 +258,33 @@ section {
 .farewell-message {
     font-size: 1.5rem;
     color: #ffe81f;
-    opacity: 0.7;
     text-shadow: 0 0 8px rgba(255, 232, 31, 0.3);
 }
 
 .rotating-name {
     font-size: 1.5rem;
-    color: #ffe81f;
+    color: #ff0000;
     text-shadow: 0 0 10px rgba(255, 232, 31, 0.5);
-    opacity: 0;
+    opacity: 1; /* Set initial opacity to 1 */
     transition: opacity 0.8s ease;
     display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    animation: blink-caret 0.75s step-end infinite;
 }
 
 .rotating-name.active {
-    opacity: 0.8;
+    opacity: 1; /* Ensure opacity is 1 when active */
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #ff0000;
+    }
 }
 
 /* Responsive styles */
