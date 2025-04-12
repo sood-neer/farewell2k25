@@ -1,0 +1,64 @@
+{
+    "images": [
+        {
+            "id": "frame1",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 1"
+        },
+        {
+            "id": "frame2",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 2"
+        },
+        {
+            "id": "frame3",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 3"
+        },
+        {
+            "id": "frame4",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 4"
+        },
+        {
+            "id": "frame5",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 5"
+        },
+        {
+            "id": "frame6",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 6"
+        },
+        {
+            "id": "frame7",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 7"
+        },
+        {
+            "id": "frame8",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 8"
+        },
+        {
+            "id": "frame9",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 9"
+        },
+        {
+            "id": "frame10",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 10"
+        },
+        {
+            "id": "frame11",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 11"
+        },
+        {
+            "id": "frame12",
+            "src": "/api/placeholder/400/300",
+            "alt": "Memory 12"
+        }
+    ]
+} 
