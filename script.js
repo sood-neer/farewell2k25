@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     startNameRotation();
     loadHeroesData();
     loadGalleryImages();
+    setupMenuToggle();
 });
 
 // Create stars for background
@@ -601,3 +602,49 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 });
+
+// Menu Toggle Functionality
+function setupMenuToggle() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const body = document.body;
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        body.classList.toggle('menu-open');
+        
+        // Prevent scrolling when menu is open
+        if (body.classList.contains('menu-open')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+    });
+
+    // Close menu when clicking menu items
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            body.classList.remove('menu-open');
+            body.style.overflow = '';
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (body.classList.contains('menu-open') && 
+            !e.target.closest('.dropdown-menu') && 
+            !e.target.closest('.menu-toggle')) {
+            body.classList.remove('menu-open');
+            body.style.overflow = '';
+        }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && body.classList.contains('menu-open')) {
+            body.classList.remove('menu-open');
+            body.style.overflow = '';
+        }
+    });
+}
