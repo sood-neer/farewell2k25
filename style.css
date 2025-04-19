@@ -167,7 +167,7 @@ body {
     font-family: 'Star Jedi', sans-serif;
     color: #ffe81f;
     font-size: 28px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     line-height: 1;
     text-align: center;
     margin: 0;
@@ -382,6 +382,7 @@ section {
     align-items: center;
     text-align: center;
     padding-top: 25vh; /* This will position content above center */
+    min-height: calc(100vh - 80px);
 }
 
 .main-title {
@@ -427,8 +428,7 @@ section {
     border-radius: 5px;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transform: rotate(var(--rotation));
-    perspective: 1000px;
+    box-shadow: 0 0 20px rgba(255, 232, 31, 0.3);
 }
 
 .photo-frame img {
@@ -437,56 +437,40 @@ section {
     object-fit: cover;
     transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transform-style: preserve-3d;
+    filter: brightness(1.1);
 }
 
-.photo-frame::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(255, 232, 31, 0.1), transparent);
-    transform: translateX(-100%) skewX(-15deg);
-    transition: transform 0.5s ease;
-    z-index: 2;
-}
-
-.photo-frame::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 232, 31, 0.05);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: 1;
-}
+/* Random rotation for gallery images */
+.photo-frame:nth-child(1) { transform: rotate(-2deg); }
+.photo-frame:nth-child(2) { transform: rotate(3deg); }
+.photo-frame:nth-child(3) { transform: rotate(-1deg); }
+.photo-frame:nth-child(4) { transform: rotate(2deg); }
+.photo-frame:nth-child(5) { transform: rotate(-3deg); }
+.photo-frame:nth-child(6) { transform: rotate(1deg); }
+.photo-frame:nth-child(7) { transform: rotate(-2deg); }
+.photo-frame:nth-child(8) { transform: rotate(3deg); }
+.photo-frame:nth-child(9) { transform: rotate(-1deg); }
+.photo-frame:nth-child(10) { transform: rotate(2deg); }
+.photo-frame:nth-child(11) { transform: rotate(-3deg); }
+.photo-frame:nth-child(12) { transform: rotate(1deg); }
 
 .photo-frame:hover {
-    transform: rotate(0) scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 232, 31, 0.8);
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 232, 31, 0.5);
     border-color: #ffe81f;
+    z-index: 10;
 }
 
 .photo-frame:hover img {
-    transform: scale(1.1) translateZ(20px);
-}
-
-.photo-frame:hover::before {
-    transform: translateX(100%) skewX(-15deg);
-}
-
-.photo-frame:hover::after {
-    opacity: 1;
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 /* Video section */
 #video {
     justify-content: center;
     align-items: center;
+    min-height: calc(100vh - 80px);
 }
 
 .video-container {
@@ -877,9 +861,40 @@ section {
     margin-bottom: 0;
     position: relative;
     aspect-ratio: 1/1.2;
-    border-radius: 4px;
+    border-radius: 4px 4px 0 0;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     background: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 232, 31, 0.1), transparent);
+    animation: heroImageGlow 4s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes heroImageGlow {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+}
+
+.hero-card.active .hero-image-container::after {
+    background: linear-gradient(45deg, transparent, rgba(255, 232, 31, 0.2), transparent);
+    animation: activeHeroImageGlow 3s infinite ease-in-out;
+}
+
+@keyframes activeHeroImageGlow {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
 }
 
 .hero-image {
@@ -888,6 +903,8 @@ section {
     object-fit: cover;
     transition: transform 0.7s ease;
     display: block;
+    box-shadow: 0 0 20px rgba(255, 232, 31, 0.2);
+    filter: brightness(1.1);
 }
 
 .hero-text-container {
@@ -947,7 +964,6 @@ section {
     cursor: pointer;
     z-index: 20;
     transition: all 0.3s ease;
-    backdrop-filter: blur(3px);
 }
 
 .carousel-arrow.prev {
@@ -1177,6 +1193,10 @@ section {
     .social-buttons {
         gap: 6px;
     }
+    
+    #video {
+        min-height: 50vh;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1194,6 +1214,11 @@ section {
         box-shadow: 0 0 30px rgba(255, 232, 31, 0.32), 
                     inset 0 0 15px rgba(255, 232, 31, 0.15);
     }
+    
+    #video {
+        min-height: 50vh;
+    }
+    
 }
 
 /* Main Footer Styles */
@@ -1228,6 +1253,7 @@ section {
     font-size: 1.6rem;
     margin-bottom: 4px;
     font-family: 'Star Jedi', sans-serif;
+    letter-spacing: 2px;
 }
 
 .footer-section p {
@@ -1657,12 +1683,14 @@ section {
 @media (max-width: 768px) {
     #home {
         padding-top: 20vh;
+        min-height: 80vh;
     }
 }
 
 @media (max-width: 480px) {
     #home {
         padding-top: 15vh;
+        min-height: 80vh;
     }
 }
 /* Add this to your style.css file */
@@ -1754,5 +1782,142 @@ section {
   .menu-item:hover::after {
     width: 80%;
   }
+  
+.hero-card.active .hero-image-container {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 232, 31, 0.2);
+}
+
+.hero-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: inset 0 0 20px rgba(255, 232, 31, 0.15);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+}
+  
+#message {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    position: relative;
+    background: transparent;
+}
+
+.message-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 232, 31, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 232, 31, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.message-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 232, 31, 0.1), transparent);
+    animation: messageGlow 3s infinite ease-in-out;
+}
+
+@keyframes messageGlow {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+}
+
+.message-content {
+    position: relative;
+    z-index: 1;
+}
+
+.message-title {
+    font-family: 'Star Jedi', sans-serif;
+    color: #ffe81f;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.5);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.message-text {
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.message-text p {
+    margin-bottom: 20px;
+}
+
+.message-signature {
+    text-align: center;
+    color: #ffe81f;
+    font-family: 'Star Jedi', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 40px;
+    letter-spacing: 1px;
+}
+
+.message-signature p:last-child {
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .message-container {
+        padding: 30px 20px;
+    }
+    
+    .message-title {
+        font-size: 2rem;
+    }
+    
+    .message-text {
+        font-size: 1.1rem;
+    }
+    
+    .message-signature {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .message-container {
+        padding: 25px 15px;
+    }
+    
+    .message-title {
+        font-size: 1.8rem;
+    }
+    
+    .message-text {
+        font-size: 1rem;
+    }
+    
+    .message-signature {
+        font-size: 1.1rem;
+    }
+}
   
   
