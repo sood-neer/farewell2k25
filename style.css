@@ -1680,20 +1680,20 @@ section {
     }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     #home {
-        padding-top: 20vh;
-        min-height: 80vh;
+        min-height: 75vh;
+        padding-top: 80px;
     }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     #home {
-        padding-top: 15vh;
-        min-height: 80vh;
+        min-height: 75vh;
+        padding-top: 70px;
     }
 }
-/* Add this to your style.css file */
+
 #heroes {
     background: transparent;
   }
@@ -1711,7 +1711,7 @@ section {
     padding: 15px;
     border-radius: 0 0 8px 8px;
   }
-  /* Heroes section transparent background */
+
 #heroes {
     background: transparent;
   }
@@ -1724,7 +1724,6 @@ section {
     border: none;
   }
   
-  /* Align page navigation with borders */
   .nav-dots {
     position: fixed;
     right: 0;
@@ -1741,7 +1740,6 @@ section {
     right: 20px;
   }
   
-  /* Lightsaber effects for navbar */
   .menu-toggle span {
     box-shadow: 0 0 8px #00ccff, 0 0 12px #00ccff;
     background-color: #fff;
@@ -1761,7 +1759,6 @@ section {
     text-shadow: 0 0 15px #ffe81f, 0 0 25px #ffe81f, 0 0 35px #ffe81f;
   }
   
-  /* Lightsaber effect for menu items */
   .menu-item {
     position: relative;
   }
