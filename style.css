@@ -42,6 +42,7 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
+    transition: transform 0.1s ease-out;
 }
 
 .star {
@@ -179,6 +180,7 @@ body {
     width: auto;
     display: block;
     cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Dropdown Menu */
@@ -192,7 +194,7 @@ body {
     z-index: 1000;
     padding: 80px 0 0;
     transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -240,7 +242,7 @@ body.menu-open {
     font-size: 1.1rem;
     letter-spacing: 1px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-item span {
@@ -275,7 +277,7 @@ body.menu-open {
 .social-links a {
     color: #ffe81f;
     font-size: 2.2rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.8;
     padding: 5px;
 }
@@ -283,7 +285,7 @@ body.menu-open {
 .social-links a:hover {
     opacity: 1;
     color: #ffe81f;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.1);
 }
 
 /* Responsive Adjustments */
@@ -373,6 +375,14 @@ section {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Home section */
@@ -418,6 +428,7 @@ section {
     gap: 15px;
     padding: 20px;
     margin-bottom: 60px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .photo-frame {
@@ -427,7 +438,7 @@ section {
     border: 2px solid rgba(255, 232, 31, 0.7);
     border-radius: 5px;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 0 20px rgba(255, 232, 31, 0.3);
 }
 
@@ -435,7 +446,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
     filter: brightness(1.1);
 }
@@ -486,6 +497,7 @@ section {
     border: 3px solid #ffe81f;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 232, 31, 0.5);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .video-frame iframe {
@@ -494,6 +506,10 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.video-frame:hover {
+    transform: scale(1.02);
 }
 
 /* Footer styles */
@@ -917,12 +933,14 @@ section {
     padding: 10px 15px 15px;
     border-radius: 0 0 8px 8px;
     margin-top: 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 232, 31, 0.2);
 }
 
 .hero-name {
     font-size: 1.9rem;
     color: #ffe81f;
-    text-shadow: none;
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.5);
     margin-bottom: 8px;
     letter-spacing: 0.08em;
     font-weight: 700;
@@ -930,12 +948,20 @@ section {
     display: block;
     text-align: left;
     line-height: 1;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: heroNameGlow 2s infinite ease-in-out;
+}
+
+@keyframes heroNameGlow {
+    0% { text-shadow: 0 0 10px rgba(255, 232, 31, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(255, 232, 31, 0.8); }
+    100% { text-shadow: 0 0 10px rgba(255, 232, 31, 0.5); }
 }
 
 .hero-description {
-    font-size: 0.85rem;
-    color: #fff;
-    line-height: 1.3;
+    font-size: 1.3rem;
+    color: #00ccff;
+    line-height: 1.5;
     text-align: left;
     margin-bottom: 12px;
     font-weight: 300;
@@ -948,6 +974,21 @@ section {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     letter-spacing: 0.05em;
+    text-shadow: 0 0 5px rgba(0, 204, 255, 0.3);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: heroDescGlow 2s infinite ease-in-out;
+}
+
+@keyframes heroDescGlow {
+    0% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.3); }
+    50% { text-shadow: 0 0 15px rgba(0, 204, 255, 0.5); }
+    100% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.3); }
+}
+
+.hero-description:hover {
+    color: #00ccff;
+    text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+    opacity: 1;
 }
 
 .carousel-arrow {
@@ -963,7 +1004,7 @@ section {
     justify-content: center;
     cursor: pointer;
     z-index: 20;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel-arrow.prev {
@@ -983,11 +1024,11 @@ section {
 .carousel-arrow:hover {
     background: rgba(255, 232, 31, 0.1);
     border-color: #ffe81f;
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.2);
 }
 
 .carousel-arrow:hover i {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .progress-indicator {
@@ -1004,7 +1045,7 @@ section {
 .social-button {
     color: #ffe81f;
     font-size: 1.8rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.8;
     padding: 5px;
     background: transparent;
@@ -1016,7 +1057,7 @@ section {
 .social-button:hover {
     opacity: 1;
     color: #ffe81f;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.1);
     background: transparent;
 }
 
@@ -1091,6 +1132,7 @@ section {
     
     .carousel-arrow.next {
         right: 20px;
+        transform: translateY(-50%);
     }
 }
 
@@ -1110,7 +1152,8 @@ section {
     }
     
     .carousel-arrow.next {
-        right: 20px;
+        right: 15px;
+        transform: translateY(-50%);
     }
 }
 
@@ -1241,6 +1284,7 @@ section {
 
 .footer-section {
     text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-section img {
@@ -1263,6 +1307,10 @@ section {
     font-family: 'Inter', sans-serif;
 }
 
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -1273,14 +1321,14 @@ section {
 .social-links a {
     color: #ffe81f;
     font-size: 2.2rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.8;
     padding: 5px;
 }
 
 .social-links a:hover {
     opacity: 1;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.1);
 }
 
 .footer-bottom {
@@ -1402,7 +1450,12 @@ section {
     border: 3px solid #ffe81f;
     border-top: 3px solid transparent;
     border-radius: 50%;
-    animation: starWarsLoading 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Star Wars Theme Animations */
@@ -1451,6 +1504,7 @@ section {
 /* Interactive Elements */
 .nav-logo:hover {
     animation: jediMindTrick 0.5s ease;
+    transform: scale(1.05);
 }
 
 .nav-links a:hover {
@@ -1470,18 +1524,19 @@ section {
     width: 100%;
     height: 100%;
     background: linear-gradient(45deg, transparent, rgba(255, 232, 31, 0.1), transparent);
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 
 .photo-frame:hover::before {
-    transform: translateX(100%);
+    opacity: 1;
 }
 
 /* Video Section Effects */
 .video-frame {
     position: relative;
     overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .video-frame::after {
@@ -1819,23 +1874,23 @@ section {
     box-shadow: 0 0 30px rgba(255, 232, 31, 0.2);
     position: relative;
     overflow: hidden;
-}
-
-.message-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(255, 232, 31, 0.1), transparent);
     animation: messageGlow 3s infinite ease-in-out;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes messageGlow {
-    0% { opacity: 0.3; }
-    50% { opacity: 0.7; }
-    100% { opacity: 0.3; }
+    0% { 
+        box-shadow: 0 0 30px rgba(255, 232, 31, 0.3);
+        border-color: rgba(255, 232, 31, 0.4);
+    }
+    50% { 
+        box-shadow: 0 0 50px rgba(255, 232, 31, 0.5);
+        border-color: rgba(255, 232, 31, 0.7);
+    }
+    100% { 
+        box-shadow: 0 0 30px rgba(255, 232, 31, 0.3);
+        border-color: rgba(255, 232, 31, 0.4);
+    }
 }
 
 .message-content {
@@ -1850,8 +1905,22 @@ section {
     text-align: center;
     margin-bottom: 30px;
     text-shadow: 0 0 10px rgba(255, 232, 31, 0.5);
-    letter-spacing: 6px;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    animation: titleGlow 2s infinite ease-in-out;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes titleGlow {
+    0% { 
+        text-shadow: 0 0 15px rgba(255, 232, 31, 0.6);
+    }
+    50% { 
+        text-shadow: 0 0 25px rgba(255, 232, 31, 0.9);
+    }
+    100% { 
+        text-shadow: 0 0 15px rgba(255, 232, 31, 0.6);
+    }
 }
 
 .message-text {
@@ -1861,10 +1930,23 @@ section {
     line-height: 1.6;
     margin-bottom: 30px;
     text-align: center;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .message-text p {
     margin-bottom: 20px;
+    position: relative;
+}
+
+.message-text p::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 232, 31, 0.3), transparent);
 }
 
 .message-signature {
@@ -1874,11 +1956,15 @@ section {
     font-size: 1.3rem;
     margin-top: 40px;
     letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(255, 232, 31, 0.6);
+    animation: signatureGlow 2s infinite ease-in-out;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.message-signature p:last-child {
-    letter-spacing: 1px;
-    margin-top: 10px;
+@keyframes signatureGlow {
+    0% { text-shadow: 0 0 10px rgba(255, 232, 31, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(255, 232, 31, 0.8); }
+    100% { text-shadow: 0 0 10px rgba(255, 232, 31, 0.5); }
 }
 
 @media screen and (max-width: 768px) {
