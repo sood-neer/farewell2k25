@@ -1,93 +1,87 @@
 [
   {
     "name": "Adarsh Pal",
+    "title": "Sage in sneaker",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Dedicated developer with excellent problem-solving skills.",
     "insta": "https://www.instagram.com/ada.rsh_pal/",
     "linkedin": "https://www.linkedin.com/in/adarshxpal/"
   },
   {
     "name": "Aditya Maurya",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Creative designer who brings ideas to life with beautiful visuals.",
     "insta": "https://www.instagram.com/aditya_m3435/",
     "linkedin": "https://www.linkedin.com/in/aditya3435/"
   },
   {
     "name": "Rehan Khan",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Technical expert with a passion for innovative solutions.",
     "insta": "https://www.instagram.com/_.r3han_/",
     "linkedin": ""
   },
   {
     "name": "Yash Pandey",
+    "title": "Master of vibes and ventures",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Talented photographer with an eye for detail and composition.",
     "insta": "https://www.instagram.com/yashpandeyachy/",
     "linkedin": "https://linkedin.com/in/username"
   },
   {
     "name": "Ravideep Singh",
+    "title": "Goofyguru",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Exceptional team leader who inspires others to achieve their best.",
     "insta": "https://www.instagram.com/ravi_deepsingh63/",
     "linkedin": "https://www.linkedin.com/in/ravideep-singh-3881351a1/"
   },
   {
     "name": "Tasman Walid Lyon",
+    "title": "serene shutterbug",
     "image": "/dummy_3000x4000_ffffff_grey.png",
     "imageClass": "tasman-image",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Versatile artist with a unique vision and creative approach.",
     "insta": "https://www.instagram.com/lyo__26/",
     "linkedin": "https://www.linkedin.com/in/tasman-walid-lyon/"
   },
   {
     "name": "Ashutosh Soni",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Strategic thinker with a focus on user experience.",
     "insta": "https://www.instagram.com/ashutosh.soni001/",
     "linkedin": "https://www.linkedin.com/in/ashutosh-soni-92b03b22b/"
   },
   {
     "name": "Aman Ranaut",
+    "title": "Master of mayhem",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Skilled animator bringing characters to life through motion.",
     "insta": "https://www.instagram.com/_aman__ranaut/",
     "linkedin": "https://www.linkedin.com/in/amanranaut/"
   },
   {
     "name": "Srijan Sharma",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Innovator with a passion for cutting-edge technology.",
     "insta": "https://www.instagram.com/_srijan_0/",
     "linkedin": "https://www.linkedin.com/in/srijan-sharma-34a581232/"
   },
   {
     "name": "Asmanya Sharma",
+    "title": "Calm and collected",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Visual artist creating stunning digital illustrations and concept art.",
     "insta": "https://www.instagram.com/asmanya_/",
     "linkedin": "https://www.linkedin.com/in/asmanya/"
   },
   {
     "name": "Akshun Kuthiala",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Frontend specialist crafting seamless user interfaces.",
     "insta": "https://www.instagram.com/akshun_kuthiala/",
     "linkedin": "https://www.linkedin.com/in/akshun-kuthiala/"
   },
   {
     "name": "Shinjini Dutta",
+    "title": "Sketch sorcerer",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Multimedia expert with skills in photography and videography.",
     "insta": "https://www.instagram.com/shi.ninjaaa/",
     "linkedin": "https://www.linkedin.com/in/shinjini-dutta-751094228/"
   },
   {
     "name": "Ridhi Sharma",
     "image": "/dummy_3000x4000_ffffff_grey.png",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dolor turpis, dictum a efficitur in, aliquam eget velit. Creative director with an eye for detail and excellence.",
     "insta": "https://www.instagram.com/whyyridhii/",
     "linkedin": "https://www.linkedin.com/in/ridhi-sharma-8212ba214/"
   }

@@ -232,8 +232,7 @@ async function loadHeroesData() {
                     </div>
                     <div class="hero-text-container">
                         <h2 class="hero-name">${hero.name} ${honorific}</h2>
-                        <p class="hero-description">${hero.description}</p>
-                        
+                        ${hero.title ? `<p class="hero-description"><span style='color: #add8e6'>${hero.title}</span></p>` : ''}
                         <div class="social-buttons">
                             <a href="${hero.insta}" class="social-button" target="_blank">
                                 <i class="fab fa-instagram"></i>
