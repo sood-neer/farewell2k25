@@ -132,7 +132,6 @@ function startNameRotation() {
         "people": [
             { "name": "Adarsh Pal Sir" },
             { "name": "Aditya Maurya Sir" },
-            { "name": "Rehan Khan Sir" },
             { "name": "Yash Pandey Sir" },
             { "name": "Ravideep Singh Sir" },
             { "name": "Tasman Walid Lyon Sir" },
