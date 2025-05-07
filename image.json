@@ -2,62 +2,62 @@
     "images": [
         {
             "id": "frame1",
-            "src": "400.png",
+            "src": "assets/g1.webp",
             "alt": "Memory 1"
         },
         {
             "id": "frame2",
-            "src": "400.png",
+            "src": "assets/g2.webp",
             "alt": "Memory 2"
         },
         {
             "id": "frame3",
-            "src": "400.png",
+            "src": "assets/g3.webp",
             "alt": "Memory 3"
         },
         {
             "id": "frame4",
-            "src": "400.png",
+            "src": "assets/g4.webp",
             "alt": "Memory 4"
         },
         {
             "id": "frame5",
-            "src": "400.png",
+            "src": "assets/g5.webp",
             "alt": "Memory 5"
         },
         {
             "id": "frame6",
-            "src": "400.png",
+            "src": "assets/g6.webp",
             "alt": "Memory 6"
         },
         {
             "id": "frame7",
-            "src": "400.png",
+            "src": "assets/g7.webp",
             "alt": "Memory 7"
         },
         {
             "id": "frame8",
-            "src": "400.png",
+            "src": "assets/g8.webp",
             "alt": "Memory 8"
         },
         {
             "id": "frame9",
-            "src": "400.png",
+            "src": "assets/g9.webp",
             "alt": "Memory 9"
         },
         {
             "id": "frame10",
-            "src": "400.png",
+            "src": "assets/g2.webp",
             "alt": "Memory 10"
         },
         {
             "id": "frame11",
-            "src": "400.png",
+            "src": "assets/g2.webp",
             "alt": "Memory 11"
         },
         {
             "id": "frame12",
-            "src": "400.png",
+            "src": "assets/g2.webp",
             "alt": "Memory 12"
         }
     ]
