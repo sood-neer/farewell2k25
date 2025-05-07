@@ -2,80 +2,80 @@
   {
     "name": "Adarsh Pal",
     "title": "Sage in sneaker",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/adarshpal.webp",
     "insta": "https://www.instagram.com/ada.rsh_pal/",
     "linkedin": "https://www.linkedin.com/in/adarshxpal/"
   },
   {
     "name": "Aditya Maurya",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/adityamaurya.webp",
     "insta": "https://www.instagram.com/aditya_m3435/",
     "linkedin": "https://www.linkedin.com/in/aditya3435/"
   },
   {
     "name": "Yash Pandey",
     "title": "Master of vibes and ventures",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/yashpandey.webp",
     "insta": "https://www.instagram.com/yashpandeyachy/",
     "linkedin": "https://linkedin.com/in/username"
   },
   {
     "name": "Ravideep Singh",
     "title": "Goofyguru",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/ravideepsingh.webp",
     "insta": "https://www.instagram.com/ravi_deepsingh63/",
     "linkedin": "https://www.linkedin.com/in/ravideep-singh-3881351a1/"
   },
   {
     "name": "Tasman Walid Lyon",
     "title": "serene shutterbug",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/tasman.webp",
     "imageClass": "tasman-image",
     "insta": "https://www.instagram.com/lyo__26/",
     "linkedin": "https://www.linkedin.com/in/tasman-walid-lyon/"
   },
   {
     "name": "Ashutosh Soni",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/ashutoshsoni.webp",
     "insta": "https://www.instagram.com/ashutosh.soni001/",
     "linkedin": "https://www.linkedin.com/in/ashutosh-soni-92b03b22b/"
   },
   {
     "name": "Aman Ranaut",
     "title": "Master of mayhem",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/amanranaut.webp",
     "insta": "https://www.instagram.com/_aman__ranaut/",
     "linkedin": "https://www.linkedin.com/in/amanranaut/"
   },
   {
     "name": "Srijan Sharma",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/srijansharma.webp",
     "insta": "https://www.instagram.com/_srijan_0/",
     "linkedin": "https://www.linkedin.com/in/srijan-sharma-34a581232/"
   },
   {
     "name": "Asmanya Sharma",
     "title": "Calm and collected",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/asmanyasharma.webp",
     "insta": "https://www.instagram.com/asmanya_/",
     "linkedin": "https://www.linkedin.com/in/asmanya/"
   },
   {
     "name": "Akshun Kuthiala",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/akshunkuthiala.webp",
     "insta": "https://www.instagram.com/akshun_kuthiala/",
     "linkedin": "https://www.linkedin.com/in/akshun-kuthiala/"
   },
   {
     "name": "Shinjini Dutta",
     "title": "Sketch sorcerer",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/shinjinidutta.webp",
     "insta": "https://www.instagram.com/shi.ninjaaa/",
     "linkedin": "https://www.linkedin.com/in/shinjini-dutta-751094228/"
   },
   {
     "name": "Ridhi Sharma",
-    "image": "/dummy_3000x4000_ffffff_grey.png",
+    "image": "assets/ridhisharma.webp",
     "insta": "https://www.instagram.com/whyyridhii/",
     "linkedin": "https://www.linkedin.com/in/ridhi-sharma-8212ba214/"
   }
