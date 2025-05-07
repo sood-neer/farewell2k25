@@ -47,17 +47,17 @@
         },
         {
             "id": "frame10",
-            "src": "assets/g2.webp",
+            "src": "assets/g10.webp",
             "alt": "Memory 10"
         },
         {
             "id": "frame11",
-            "src": "assets/g2.webp",
+            "src": "assets/g11.webp",
             "alt": "Memory 11"
         },
         {
             "id": "frame12",
-            "src": "assets/g2.webp",
+            "src": "assets/g12.webp",
             "alt": "Memory 12"
         }
     ]
