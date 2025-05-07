@@ -547,6 +547,9 @@ section.visible {
     border-radius: 5px;
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 20px rgba(255, 232, 31, 0.3),
+                0 0 35px rgba(255, 232, 31, 0.2),
+                0 0 50px rgba(255, 232, 31, 0.1);
 }
 
 .photo-frame img {
@@ -575,6 +578,9 @@ section.visible {
     transform: rotate(0deg) scale(1.05);
     border-color: #ffe81f;
     z-index: 10;
+    box-shadow: 0 0 25px rgba(255, 232, 31, 0.4),
+                0 0 45px rgba(255, 232, 31, 0.3),
+                0 0 65px rgba(255, 232, 31, 0.2);
 }
 
 .photo-frame:hover img {
@@ -1621,6 +1627,9 @@ section.visible {
     border-radius: 5px;
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 20px rgba(255, 232, 31, 0.3),
+                0 0 35px rgba(255, 232, 31, 0.2),
+                0 0 50px rgba(255, 232, 31, 0.1);
 }
 
 .photo-frame img {
@@ -1649,6 +1658,9 @@ section.visible {
     transform: rotate(0deg) scale(1.05);
     border-color: #ffe81f;
     z-index: 10;
+    box-shadow: 0 0 25px rgba(255, 232, 31, 0.4),
+                0 0 45px rgba(255, 232, 31, 0.3),
+                0 0 65px rgba(255, 232, 31, 0.2);
 }
 
 .photo-frame:hover img {
