@@ -8,6 +8,7 @@
   },
   {
     "name": "Aditya Maurya",
+    "title": "Back-End Bard",
     "image": "assets/adityamaurya.webp",
     "insta": "https://www.instagram.com/aditya_m3435/",
     "linkedin": "https://www.linkedin.com/in/aditya3435/"
@@ -21,7 +22,7 @@
   },
   {
     "name": "Ravideep Singh",
-    "title": "Goofyguru",
+    "title": "Frame Alchemist",
     "image": "assets/ravideepsingh.webp",
     "insta": "https://www.instagram.com/ravi_deepsingh63/",
     "linkedin": "https://www.linkedin.com/in/ravideep-singh-3881351a1/"
@@ -62,6 +63,7 @@
   },
   {
     "name": "Akshun Kuthiala",
+    "title": "Syntax Sorcerer",
     "image": "assets/akshunkuthiala.webp",
     "insta": "https://www.instagram.com/akshun_kuthiala/",
     "linkedin": "https://www.linkedin.com/in/akshun-kuthiala/"
@@ -76,6 +78,7 @@
   {
     "name": "Ridhi Sharma",
     "image": "assets/ridhisharma.webp",
+    "title": "Emporess of Empathy",
     "insta": "https://www.instagram.com/whyyridhii/",
     "linkedin": "https://www.linkedin.com/in/ridhi-sharma-8212ba214/"
   }
