@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Create stars for background
 function createStars() {
     const starsContainer = document.getElementById('stars-container');
-    const starCount = 400;
+    const starCount = 200;
     
     for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
@@ -646,3 +646,42 @@ function setupMenuToggle() {
         }
     });
 }
+ // Initialize smooth scrolling
+ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            if (dropdownMenu.classList.contains('active')) {
+                dropdownMenu.classList.remove('active');
+            }
+            
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Intersection Observer for section visibility
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
