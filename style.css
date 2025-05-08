@@ -1,21 +1,23 @@
 @font-face {
     font-family: 'Star Jedi';
     src: url('/font/Starjedi.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Star Jedi Hollow';
     src: url('/font/Starjhol.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'nura';
-    src: url('/SLANT.TTF') format('truetype');
+    src: url('font/SLANT.TTF') format('truetype');
 }
 
 @font-face {
-    font-family: 'nura bold';
-    src: url('/SLANT.TTF') format('truetype');
+    font-family: 'lobster';
+    src: url('font/Lobster-Regular.ttf') format('truetype');
 }
 
 * {
@@ -32,7 +34,100 @@ body {
     overflow-x: hidden;
     position: relative;
 }
+ /* Critical CSS for initial render */
+ html {
+    scroll-behavior: smooth;
+}
 
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    font-family: 'Star Jedi', sans-serif;
+    color: #ffe81f;
+    overflow-x: hidden;
+}
+
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 80px;
+}
+
+#home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 25vh;
+    position: relative;
+}
+
+.main-title {
+    font-size: 5rem;
+    color: #ffe81f;
+    text-shadow: 0 0 20px rgba(255, 232, 31, 0.7);
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    animation: starWarsText 3s ease-out forwards;
+}
+
+.subtitle {
+    font-family: 'Star Jedi Hollow', sans-serif;
+    font-size: 3rem;
+    color: #ffe81f;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(255, 232, 31, 0.5);
+    animation: starWarsText 3s ease-out 0.8s forwards;
+    opacity: 0;
+    margin-bottom: 60px;
+}
+
+@keyframes starWarsText {
+    0% {
+        transform: perspective(500px) rotateX(45deg) translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: perspective(500px) rotateX(0deg) translateY(0);
+        opacity: 1;
+    }
+}
+
+.menu-item {
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateX(10px);
+}
+
+section {
+    scroll-margin-top: 80px; /* Adjust based on your navbar height */
+}
+
+.farewell-message {
+    text-align: center;
+    margin: 20px 0 5px 0; /* Further reduced bottom margin */
+    padding: 15px 15px 5px 15px; /* Reduced bottom padding */
+}
+
+.farewell-message h4 {
+    margin-bottom: 5px; /* Reduced bottom margin */
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.section-divider {
+    width: 80%;
+    margin: 0 auto 20px auto; /* Removed top margin completely */
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
 /* Star background */
 #stars-container {
     position: fixed;
@@ -48,6 +143,7 @@ body {
     position: absolute;
     background-color: #fff;
     border-radius: 50%;
+    will-change: transform, opacity;
 }
 
 @keyframes twinkle {
@@ -70,6 +166,7 @@ body {
     z-index: 1001;
     height: 80px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    will-change: transform;
 }
 
 .nav-left {
@@ -125,6 +222,7 @@ body {
     transform: translateX(-50%);
     transition: all 0.3s ease;
     box-shadow: 0 0 8px #ffe81f, 0 0 12px #ffe81f;
+    will-change: transform, opacity;
 }
 
 .menu-toggle span:nth-child(1) {
@@ -174,6 +272,7 @@ body {
     margin: 0;
     padding: 0;
     text-shadow: 0 0 8px #ffe81f, 0 0 12px #ffe81f;
+    will-change: text-shadow;
 }
 
 .nav-text:hover {
@@ -186,6 +285,7 @@ body {
     display: block;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 
 /* Dropdown Menu */
@@ -205,6 +305,7 @@ body {
     justify-content: space-between;
     visibility: hidden;
     opacity: 0;
+    will-change: transform, opacity;
 }
 
 body.menu-open .dropdown-menu {
@@ -248,6 +349,7 @@ body.menu-open {
     letter-spacing: 1px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, color;
 }
 
 .menu-item span {
@@ -260,6 +362,7 @@ body.menu-open {
 
 .menu-item:hover {
     color: #ffe81f;
+    transform: translateX(10px);
 }
 
 .menu-item:hover i {
@@ -276,7 +379,7 @@ body.menu-open {
     display: flex;
     justify-content: center;
     gap: 25px;
-    margin-bottom: 20px;
+    margin: 15px 0;
 }
 
 .social-links a {
@@ -285,11 +388,11 @@ body.menu-open {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.8;
     padding: 5px;
+    will-change: transform, opacity;
 }
 
 .social-links a:hover {
     opacity: 1;
-    color: #ffe81f;
     transform: translateY(-3px) scale(1.1);
 }
 
@@ -383,6 +486,7 @@ section {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: transform, opacity;
 }
 
 section.visible {
@@ -440,39 +544,6 @@ section.visible {
     }
 }
 
-.spaceship-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('spaceship.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0;
-    animation: fadeInSpaceship 2s ease-in forwards, floatSpaceship 6s ease-in-out infinite;
-    z-index: 1;
-}
-
-.spaceship-bg::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(
-        circle,
-        rgba(255, 232, 31, 0.2) 0%,
-        rgba(255, 232, 31, 0.1) 40%,
-        rgba(255, 232, 31, 0) 70%
-    );
-    z-index: -1;
-    transform: translate(-50%, -50%);
-    animation: glowPulse 4s ease-in-out infinite;
-}
-
 .home-image {
     position: absolute;
     top: 50%;
@@ -510,7 +581,7 @@ section.visible {
     letter-spacing: 8px;
     margin-bottom: 20px;
     animation: starWarsText 3s ease-out forwards;
-    transform-origin: 50% 100%;
+    will-change: transform, opacity;
 }
 
 .subtitle {
@@ -521,6 +592,7 @@ section.visible {
     text-shadow: 0 0 15px rgba(255, 232, 31, 0.5);
     animation: starWarsText 3s ease-out 0.8s forwards;
     opacity: 0;
+    will-change: transform, opacity;
 }
 
 /* Gallery section */
@@ -674,11 +746,13 @@ section.visible {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .main-title {
+    .main-title { 
         font-size: 4rem;
+        letter-spacing: 6px;
     }
-    .subtitle {
+    .subtitle { 
         font-size: 2.5rem;
+        letter-spacing: 4px;
     }
     .gallery-container {
         grid-template-columns: repeat(3, 1fr);
@@ -686,6 +760,11 @@ section.visible {
     }
     .nav-logo {
         height: 50px;
+    }
+    .hero-card {
+        min-width: 320px;
+        width: 320px;
+        margin: 0 15px;
     }
 }
 
@@ -705,11 +784,13 @@ section.visible {
     .nav-links {
         gap: 15px;
     }
-    .main-title {
-        font-size: 3.5rem;
+    .main-title { 
+        font-size: 3rem;
+        letter-spacing: 5px;
     }
-    .subtitle {
+    .subtitle { 
         font-size: 2rem;
+        letter-spacing: 3px;
     }
     .gallery-container {
         grid-template-columns: repeat(2, 1fr);
@@ -717,6 +798,11 @@ section.visible {
     }
     .video-container {
         width: 95%;
+    }
+    .hero-card {
+        min-width: 280px;
+        width: 280px;
+        margin: 0 10px;
     }
 }
 
@@ -733,15 +819,14 @@ section.visible {
         flex-wrap: wrap;
         justify-content: center;
     }
-    .main-title {
-        font-size: 3rem;
-        letter-spacing: 5px;
-        animation: starWarsText 1.5s ease-out forwards;
-    }
-    .subtitle {
-        font-size: 1.8rem;
+    .main-title { 
+        font-size: 3.2rem !important;
         letter-spacing: 3px;
-        animation: starWarsText 1.5s ease-out 0.3s forwards;
+        margin-bottom: 12px;
+    }
+    .subtitle { 
+        font-size: 2.2rem !important;
+        letter-spacing: 2px;
     }
     section {
         min-height: calc(100vh - 70px);
@@ -779,6 +864,13 @@ section.visible {
         width: 350px;
         height: 350px;
     }
+    .hero-card {
+        min-width: 280px;
+        width: 280px;
+        margin: 0 10px;
+    }
+    .carousel-arrow.prev { left: 20px; }
+    .carousel-arrow.next { right: 20px; }
 }
 
 @media (max-width: 480px) {
@@ -794,13 +886,14 @@ section.visible {
         flex-wrap: wrap;
         justify-content: center;
     }
-    .main-title {
-        font-size: 2.5rem;
-        letter-spacing: 3px;
-    }
-    .subtitle {
-        font-size: 1.5rem;
+    .main-title { 
+        font-size: 2.8rem !important;
         letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+    .subtitle { 
+        font-size: 1.8rem !important;
+        letter-spacing: 1px;
     }
     .gallery-container {
         grid-template-columns: 1fr;
@@ -844,6 +937,29 @@ section.visible {
     .spaceship-bg {
         width: 250px;
         height: 250px;
+    }
+    .hero-card {
+        min-width: 260px;
+        width: 260px;
+        margin: 0 8px;
+    }
+    .carousel-arrow.prev { left: 20px; }
+    .carousel-arrow.next { right: 15px; }
+}
+
+@media (max-width: 360px) {
+    .main-title { 
+        font-size: 2.4rem !important;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+    .subtitle { 
+        font-size: 1.6rem !important;
+        letter-spacing: 1px;
+    }
+    
+    #home {
+        padding-top: 15vh;
     }
 }
 
@@ -942,6 +1058,7 @@ section.visible {
     flex-shrink: 0;
     border-radius: 8px;
     overflow: hidden;
+    will-change: transform, opacity, filter;
 }
 
 .hero-card.active {
@@ -1109,20 +1226,17 @@ section.visible {
     cursor: pointer;
     z-index: 20;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 
-.carousel-arrow.prev {
-    left: 20px;
-}
-
-.carousel-arrow.next {
-    right: 20px;
-}
+.carousel-arrow.prev { left: 20px; }
+.carousel-arrow.next { right: 20px; }
 
 .carousel-arrow i {
     color: #ffe81f;
     font-size: 20px;
     transition: all 0.3s ease;
+    will-change: transform;
 }
 
 .carousel-arrow:hover {
@@ -1405,11 +1519,11 @@ section.visible {
     letter-spacing: 2px;
 }
 
-.footer-section p {
+.footer-text {
     color: rgba(255, 232, 31, 0.8);
     font-size: 1rem;
     margin: 4px 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'nura', sans-serif;
 }
 
 .footer-section:hover {
@@ -1826,168 +1940,22 @@ section.visible {
 
 #heroes {
     background: transparent;
-    position: relative;
-    overflow: hidden;
 }
 
-/* Mobile image styles */
-.mobile-image {
-    display: none; /* Hide by default */
-}
-
-.mobile-farewell-image {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(255, 232, 31, 0.15);
-}
-
-/* Show only on mobile devices */
-@media (max-width: 768px) {
-    .mobile-image {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto 20px;
-        padding: 0 15px;
-    }
-    
-    .mobile-farewell-image {
-        max-height: 250px;
-    }
-}
-
-@media (max-width: 480px) {
-    .mobile-image {
-        margin-bottom: 15px;
-        padding: 0 10px;
-    }
-    
-    .mobile-farewell-image {
-        max-height: 200px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #home {
-        min-height: 75vh;
-        padding-top: 80px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #home {
-        min-height: 75vh;
-        padding-top: 70px;
-    }
-}
-
-#heroes {
+.hero-carousel-container {
     background: transparent;
-  }
-  
-  .hero-carousel-container {
-    background: transparent;
-  }
-  
-  .hero-card {
+}
+
+.hero-card {
     border: none;
-  }
-  
-  .hero-text-container {
+}
+
+.hero-text-container {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 15px;
     border-radius: 0 0 8px 8px;
-  }
-
-#heroes {
-    background: transparent;
-  }
-  
-  .hero-carousel-container {
-    background: transparent;
-  }
-  
-  .hero-card {
-    border: none;
-  }
-  
-  .nav-dots {
-    position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    padding-right: 15px;
-  }
-  
-  .carousel-arrow.prev {
-    left: 20px;
-  }
-  
-  .carousel-arrow.next {
-    right: 20px;
-  }
-  
-  .menu-toggle span {
-    box-shadow: 0 0 8px #ffe81f, 0 0 12px #ffe81f;
-    background-color: #fff;
-    transition: all 0.3s ease, box-shadow 0.5s ease;
-  }
-  
-  .menu-toggle:hover span {
-    box-shadow: 0 0 15px #ffe81f, 0 0 20px #ffe81f;
-  }
-  
-  .nav-text {
-    text-shadow: 0 0 10px #ffe81f, 0 0 20px #ffe81f;
-    transition: text-shadow 0.3s ease;
-  }
-  
-  .nav-text:hover {
-    text-shadow: 0 0 15px #ffe81f, 0 0 25px #ffe81f, 0 0 35px #ffe81f;
-  }
-  
-  .menu-item {
-    position: relative;
-  }
-  
-  .menu-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: #ffe81f;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px 1px #ffe81f;
-    transform: translateX(-50%);
-  }
-  
-  .menu-item:hover::after {
-    width: 80%;
-  }
-  
-.hero-card.active .hero-image-container {
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 232, 31, 0.2);
 }
 
-.hero-image-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    box-shadow: inset 0 0 20px rgba(255, 232, 31, 0.15);
-    opacity: 0.6;
-    pointer-events: none;
-    z-index: 1;
-}
-  
 #message {
     min-height: 100vh;
     display: flex;
@@ -2059,8 +2027,8 @@ section.visible {
 }
 
 .message-text {
-    color: #fff;
-    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    font-family: 'nura', sans-serif;
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 30px;
@@ -2277,8 +2245,9 @@ spline-viewer {
 
 /* Adjust responsive styles */
 @media (max-width: 1200px) {
-    .main-title {
-        font-size: 4rem;
+    .main-title { 
+        font-size: 4.5rem;
+        letter-spacing: 6px;
     }
     .spaceship-container {
         max-width: 500px;
@@ -2286,8 +2255,10 @@ spline-viewer {
 }
 
 @media (max-width: 768px) {
-    .main-title {
-        font-size: 3rem;
+    .main-title { 
+        font-size: 3.5rem;
+        letter-spacing: 4px;
+        margin-bottom: 15px;
     }
     .spaceship-container {
         max-width: 400px;
@@ -2298,8 +2269,10 @@ spline-viewer {
 }
 
 @media (max-width: 480px) {
-    .main-title {
-        font-size: 2.5rem;
+    .main-title { 
+        font-size: 2.8rem;
+        letter-spacing: 3px;
+        margin-bottom: 12px;
     }
     .spaceship-container {
         max-width: 300px;
