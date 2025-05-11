@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadHeroesData();
     loadGalleryImages();
     setupMenuToggle();
+    setupVideoControls();
 });
 
 // Create stars for background
@@ -646,26 +647,265 @@ function setupMenuToggle() {
         }
     });
 }
- // Initialize smooth scrolling
- document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+
+// Video controls
+function setupVideoControls() {
+    const video = document.getElementById('farewellVideo');
+    const videoFrame = document.querySelector('.video-frame');
+    const playPauseBtn = document.querySelector('.play-pause-btn');
+    const timeline = document.querySelector('.timeline');
+    const timelineProgress = document.querySelector('.timeline-progress');
+    const timeDisplay = document.querySelector('.time-display');
+    const volumeBtn = document.querySelector('.volume-btn');
+    const volumeSlider = document.querySelector('.volume-slider');
+    const volumeLevel = document.querySelector('.volume-level');
+    const fullscreenBtn = document.querySelector('.fullscreen-btn');
+    const videoControls = document.querySelector('.video-controls');
+
+    let controlsTimeout;
+    const CONTROLS_TIMEOUT = 3000; // Hide controls after 3 seconds of inactivity
+
+    // Show controls and set timeout to hide them
+    function showControls() {
+        videoControls.style.opacity = '1';
+        videoControls.style.transform = 'translateY(0)';
         
-        if (targetElement) {
-            const dropdownMenu = document.querySelector('.dropdown-menu');
-            if (dropdownMenu.classList.contains('active')) {
-                dropdownMenu.classList.remove('active');
+        // Clear existing timeout
+        if (controlsTimeout) {
+            clearTimeout(controlsTimeout);
+        }
+        
+        // Set new timeout
+        controlsTimeout = setTimeout(() => {
+            if (!video.paused) { // Only hide if video is playing
+                videoControls.style.opacity = '0';
+                videoControls.style.transform = 'translateY(100%)';
+            }
+        }, CONTROLS_TIMEOUT);
+    }
+
+    // Hide controls immediately
+    function hideControls() {
+        videoControls.style.opacity = '0';
+        videoControls.style.transform = 'translateY(100%)';
+    }
+
+    // Initialize video volume
+    video.volume = 1;
+    volumeLevel.style.width = '100%';
+
+    // Play/Pause functionality
+    function togglePlay() {
+        if (video.paused) {
+            video.play().catch(error => {
+                console.error('Error playing video:', error);
+            });
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            // Hide controls after timeout when playing
+            showControls();
+        } else {
+            video.pause();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            // Keep controls visible when paused
+            showControls();
+        }
+    }
+
+    // Timeline functionality
+    function updateTimeline() {
+        if (video.duration) {
+            const percent = (video.currentTime / video.duration) * 100;
+            timelineProgress.style.width = `${percent}%`;
+            timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+        }
+    }
+
+    function setTimelinePosition(e) {
+        const rect = timeline.getBoundingClientRect();
+        const percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        video.currentTime = percent * video.duration;
+    }
+
+    // Volume functionality
+    function updateVolume(e) {
+        const rect = volumeSlider.getBoundingClientRect();
+        const percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        video.volume = percent;
+        volumeLevel.style.width = `${percent * 100}%`;
+        updateVolumeIcon(percent);
+    }
+
+    function updateVolumeIcon(volume) {
+        if (volume === 0) {
+            volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        } else if (volume < 0.5) {
+            volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+        } else {
+            volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+        }
+    }
+
+    function toggleMute() {
+        video.muted = !video.muted;
+        if (video.muted) {
+            volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            volumeLevel.style.width = '0%';
+        } else {
+            updateVolumeIcon(video.volume);
+            volumeLevel.style.width = `${video.volume * 100}%`;
+        }
+    }
+
+    // Fullscreen functionality
+    function toggleFullscreen() {
+        const videoFrame = document.querySelector('.video-frame');
+        const video = document.getElementById('farewellVideo');
+        
+        if (!document.fullscreenElement) {
+            // Enter fullscreen
+            if (videoFrame.requestFullscreen) {
+                videoFrame.requestFullscreen();
+            } else if (videoFrame.webkitRequestFullscreen) {
+                videoFrame.webkitRequestFullscreen();
+            } else if (videoFrame.mozRequestFullScreen) {
+                videoFrame.mozRequestFullScreen();
+            } else if (videoFrame.msRequestFullscreen) {
+                videoFrame.msRequestFullscreen();
+            } else if (videoFrame.webkitEnterFullscreen) {
+                // For iOS Safari
+                video.webkitEnterFullscreen();
             }
             
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            // Update button icon
+            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+            
+            // Add landscape class for mobile
+            if (window.innerWidth <= 768) {
+                videoFrame.classList.add('landscape-fullscreen');
+            }
+        } else {
+            // Exit fullscreen
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            
+            // Update button icon
+            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+            
+            // Remove landscape class
+            videoFrame.classList.remove('landscape-fullscreen');
+        }
+    }
+
+    // Helper function to format time
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        seconds = Math.floor(seconds % 60);
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // Event listeners
+    playPauseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        togglePlay();
+    });
+
+    videoFrame.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (e.target === videoFrame || e.target === video) {
+            togglePlay();
         }
     });
-});
+
+    videoFrame.addEventListener('mousemove', showControls);
+    videoFrame.addEventListener('touchstart', showControls);
+
+    // Hide controls when mouse leaves video frame
+    videoFrame.addEventListener('mouseleave', () => {
+        if (!video.paused) {
+            hideControls();
+        }
+    });
+
+    // Show controls when mouse enters video frame
+    videoFrame.addEventListener('mouseenter', showControls);
+
+    // Keep controls visible when interacting with them
+    videoControls.addEventListener('mousemove', (e) => {
+        e.stopPropagation();
+        showControls();
+    });
+
+    videoControls.addEventListener('touchstart', (e) => {
+        e.stopPropagation();
+        showControls();
+    });
+
+    video.addEventListener('timeupdate', updateTimeline);
+    video.addEventListener('loadedmetadata', updateTimeline);
+    video.addEventListener('ended', () => {
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    });
+
+    timeline.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setTimelinePosition(e);
+    });
+
+    volumeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMute();
+    });
+
+    volumeSlider.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateVolume(e);
+    });
+
+    fullscreenBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleFullscreen();
+    });
+
+    // Handle fullscreen change
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+    function handleFullscreenChange() {
+        const videoFrame = document.querySelector('.video-frame');
+        const fullscreenBtn = document.querySelector('.fullscreen-btn');
+        
+        if (!document.fullscreenElement && 
+            !document.webkitFullscreenElement && 
+            !document.mozFullScreenElement && 
+            !document.msFullscreenElement) {
+            // Exited fullscreen
+            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+            videoFrame.classList.remove('landscape-fullscreen');
+        } else {
+            // Entered fullscreen
+            fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+            if (window.innerWidth <= 768) {
+                videoFrame.classList.add('landscape-fullscreen');
+            }
+        }
+    }
+
+    // Initialize controls
+    updateTimeline();
+    updateVolumeIcon(video.volume);
+    
+    // Initially hide controls
+    hideControls();
+}
 
 // Intersection Observer for section visibility
 const observerOptions = {
