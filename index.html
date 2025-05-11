@@ -13,19 +13,21 @@
     
     <!-- Load styles -->
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Load non-critical styles asynchronously -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- Fallback for async styles -->
     <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     </noscript>
 
     <style>
-       
+        /* Ensure video controls are visible */
+        .video-controls {
+            opacity: 1 !important;
+        }
     </style>
 </head>
 <body>
@@ -108,7 +110,30 @@
         <section id="video">
             <div class="video-container">
                 <div class="video-frame">
-                    <!-- Video content will be added here -->
+                    <video id="farewellVideo">
+                        <source src="assets/Farwell Final1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-controls">
+                        <button class="play-pause-btn" aria-label="Play/Pause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="timeline">
+                            <div class="timeline-progress"></div>
+                        </div>
+                        <div class="time-display">0:00 / 0:00</div>
+                        <div class="volume-container">
+                            <button class="volume-btn" aria-label="Mute/Unmute">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <div class="volume-slider">
+                                <div class="volume-level"></div>
+                            </div>
+                        </div>
+                        <button class="fullscreen-btn" aria-label="Toggle Fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
